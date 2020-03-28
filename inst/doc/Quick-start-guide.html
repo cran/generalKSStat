@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Introduction</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<pre><code class="r">library(generalKSStat)
+</code></pre>
+
+<h1>Introduction</h1>
+
+<h2>The statistics</h2>
+
+<p>This section is for those who are interested in the formulas of the statistics used in this package. You are safe to skip this section if you just want to apply the statistic on your data.</p>
+
+<p>There has been a lot of goodness-of-fit tests been proposed by different authors to deal with different type of data. The most popular and well-know statistic among them is probably the Kolmogorov-Smirnov(KS) statistic, which assumes that the samples are independently and identically distributed and use the geometrical distance between the null and empirical distributions as the measure of the evidence against the null. In this vignette, we will assume the null distribution is the uniform(0,1) distribution unless stated otherwise. The KS statistic is defined as</p>
+
+<p>\[KS = \sup\limits_{x\in (0,1)}\left|\hat{F}(x)-F(x)\right|\]</p>
+
+<p>Though the idea of the KS statistic is straightforward, one may argue that the statistic cannot provide a proper power if the true distribution only deviates from the null distribution at two tails, that is, the KS test has a weak power to detect the difference between \(\hat{F}(x)\) and \(F(x)\) for \(x\) closed to 0 or 1. The reason is simple, the variances of \(\hat{F}(x)\) are not the same for all \(x\) and the maximum occurs at \(x=0.5\). Therefore, the distance \(\left|\hat{F}(x)-F(x)\right|\) is usually large for \(x\) in the middle even when the null hypothesis is true, this property inflates the rejection region of the KS statistic and makes it hard to detect the difference at tails. </p>
+
+<p>Suppose that \(X_1,X_2,&hellip;,X_n\) are n iid samples from the true distribution. Let \(X_{(1)},X_{(2)},&hellip;,X_{(n)}\) be the ascending sorted samples where \(X_{(1)}\leq X_{(2)}\leq &hellip;\leq X_{(n)}\), The KS statistic can be written as</p>
+
+<p>\[
+KS^+ = \max\limits_{i =1,&hellip;,n} i/n-x_{(i)}\
+KS^- = \max\limits_{i =1,&hellip;,n} x_{(i)}-(i-1)/n\
+KS = \max(KS^+,KS^-)\
+\]</p>
+
+<p>Serveral statistics has been proposed to overcome the unequal variance problem. The higher criticism statistic, which uses the variance to standardize the differences, has the form of</p>
+
+<p>\[
+HC^+ = \max\limits_{i =1,&hellip;,n}
+\sqrt{n}\frac{ x_{(i)}-(i-1)/n}{\sqrt{x_{(i)}(1-x_{(i)})}}
+\]</p>
+
+<p>The original higher criticism(HC) statistic is proposed for dealing with pvalues and thus only has an one-sided formula, here we generalize the HC statistic to make it consistent with the KS statistic.</p>
+
+<p>\[
+HC^- = \max\limits_{i =1,&hellip;,n} \sqrt{n}\frac{i/n-x_{(i)}}{\sqrt{x_{(i)}(1-x_{(i)})}} \
+HC = \max(HC^+,HC^-)
+\]</p>
+
+<p>The Berk-Jone(BJ) statistic pushs the idea of standardization even further.</p>
+
+<p>\[
+BJ^+ = \max\limits_{i =1,&hellip;,n} B_i(x_i)\
+BJ^- = \max\limits_{i =1,&hellip;,n} 1-B_i(x_i)\
+BJ = \max(BJ^+,BJ^-)
+\]</p>
+
+<p>Where \(B_i\) is the CDF of Beta\((i,n-i+1)\). </p>
+
+<h2>The general rejection rule</h2>
+
+<p>The rejection rule for those statistics can be characterized by two sequences \(\{l_u\}\) and \(\{u_i\}\), that is</p>
+
+<p style="background-color: lightgray" align="center">
+Reject the test if and only if there exists at least one $i$ such that $x_{(i)}<l_i$ or $x_{(i)}>u_i$
+</p>
+
+<p>where the sequences \(\{l_i\}\) and \(\{u_i\}\) is determined by the statistics. remarkably, the one-sided version of the aforementioned statistics(e.g. \(KS^+\)) also fits into the above rejection rule where they just simply set \(\{l_i\}\) or \(\{u_i\}\) to be 0 depending on the side. Therefore, by controlling the value of \(\{l_i\}\) and \(\{u_i\}\), we can control which area of \(F(x)\) that will be detected. In the package, this can be done via the parameter \(alpha0\), \(index\),\(indexU\),\(indexL\).</p>
+
+<h1>Example</h1>
+
+<p>In this example, we first generate the example data from a beta distribution and apply the &ldquo;native&rdquo; statistics to the data</p>
+
+<pre><code class="r">set.seed(123)
+n &lt;- 50L
+x &lt;- rbeta(n, 1, 1.5)
+
+## plot the empirical vs null CDF
+plot(ecdf(x))
+abline(a = 0,b = 1)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAAnFBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZrY6AAA6ADo6AGY6OmY6OpA6ZpA6kNtmAABmADpmAGZmOgBmOpBmZmZmZrZmkJBmtpBmtttmtv+QOgCQOjqQOmaQZgCQZjqQtpCQ29uQ2/+zs7O2ZgC2Zjq2Zma2kDq2kGa22/+2/7a2///bkDrb25Db/9vb////tmb/25D/27b//7b//9v///99f2mJAAAACXBIWXMAAAsSAAALEgHS3X78AAAQQklEQVR4nO2dC3viuhGGnbQJ3W5ht6e3ZHvLoZdt6AYK/P//VhuTYIMvkmYkzWi+93l2IWDLkl50tWVXR2CSKncEQB4g3igQbxSINwrEGwXijQLxRoF4o0C8USDeKBBvFIg3CsQbBeKNAvFGgXijQLxRIN4oEG8UiDcKxBsF4o0C8UaBeKNAvFEgvmW/eng77hbV3ctxU/87s1ssc0YqJhDfchK/rp6ad4+Xj9f3r/niFBWD4g//rgv2n5o3f62qX34/vd79cfXw47mqqoe3TW1/t7h/3a/qN9uq1CJvUPy6algeD43o6v61fa3O4n88NzX9ulpuqsdzRVAk9sTvFg/fj/9b3b/Wxfr7oa7d69e6Ya/OVX2rui7uVVPLH55Lrevtid+eynfdi3uvxrcfRXt9quVPZbzeqm7va/GXnl5ZmBb/eP5gQPyman8Wa4gvhVNV3765/378V7XsV/Wt+N3ibtEoR4kviLZz9/B23bnrtPH1R0/b6vQGbXwxHP6xqKrfvDVv6uHcSzuc+8PHOL6p3E89+rpnj169IbanXt3HHxjHWwEzd1bBXD0oGIg3CsQbBeKNAvFGgXijQLxRIN4oEG8UiDcKxBsF4o0C8UaBeKNAvFEg3igQbxSINwrEGwXijUIRXwHJRBRP2BdEpPr4b2YbSvhAHFXn/5mNKAcAwqh6LzNbUY4ARFFdvc5sRjkEEER182Zmu1F2i1MfcWARGcTLoxp4N7PhCIfndvHo9na9MMSLoxp8O7PlMPuvr71Xn31BWnpjd5R4M1QTf81sPERz5y+08QqoJv+c2ZpyJBCfiZnY6y8gviAm5uBvPuYS3+ncvZ8F+Lmh/huvCV/f8/3qtbr9nEk8874ghNESP/AhxJeEu3eIN4Dzj8H962j7Aj6GPZBn7lbnrtztQB7iozB78cz19l4fO359bKbuxu71BvExcLhsqr+95+duXzfsv4zcwBniY+B5JZ3zhI7f19H2BWP4lfjxLSFeGzzeIb5kpgxAfLlMCoB4DfgO4dqdCN9CvAh8h3DtTjG/jrYv6OK1+Ol9H9r3EC+BgBI/uznEa4DfO8QXiUPWQ3yBuOQ8xCvAs6Z32hji5eM5Pc/S64d4AXiJd90Q4uXjI57rBwLxEojgHeKLwiPLIb4gOC7JCgiKc1/Q4jWQ4xzzQXxWovTnnbaG+Kz4nJDjnc2H+Kx4lHjf3IZ40UTzDvFl4J/XEF8C7FfkQXw+ovXnnfaB+FxE7Ne57ATxuXAfyIXlM8QLxbnEB2YzxEslrneIV05wJkO8asLzGOJzELQWbiicaLtCfAyC1sINhRNvX4iPwcztTFxHcqQMhvgM8JR4WggQn4P83iFeKeRfDsSnhqVfF73CgHhuWNr3+D8diOfG564Wo2FwxCPeISB+CIYSz5KxEJ8aGd4hXh1M2QrxyuDKVYhPDLGmZ8tUiE8LsW/Hl6cQnxaaeMYshfi0kMRz5ijEJ0aId4jXA29+QrwWmLMT4tMgZL7OOTyI54E8Q8+emWTxu0X1uBl63iDEd/C+3fz1/twRIos/fHs5bh5r/5/fvPc1hJh5G9cgZ4/YPDd+s+w9P955X0tI844Sr4AoGcnRxi/RxsckTj6iVx8VGdfXBQQL8SSkXGflH67zYTudO9K4pSyoo7iIpQclPibU33/EwgPxUSF6Z4uHd9hOvfoG9Or5iZqB5HH889PpdfuAcTwzcfOPY+au++qzrwGkXHbhHTxKPAmJ3Xm38OcPv1+hjR8lXHz0zEOvPiaCTsN6HgHiaYj1DvESSZFzEC+PJBkH8exIuO0B+SgQ7w15fp4tJpTDKEiBNDzvUnize4w4+R8H4r0RsyySdCCI90eFd4gXRcIsg3hBpMwxiOcmvKZPmmEQz4zg8zI+R4N4XwSfl/E5HMT7Eio+dW5BPDc6vEO8DNLnFcRLIENWQTwrQfV8ljVHEM+J6NMyXkeFeC9CTshlyiaI50SPd4jnRY13iM9LvjyCeCbC+vP88WA6NMQ7oqg/73RsiHck5Bq7rBkE8Two6s87HR3iXVHmHeJzkTt3ID4P2TMH4jnQVs/PxwDiXfDu2QnIGohnwHcgJyFnIJ4Bhd4hngV93iE+OUKyBeITIyVXID4Ybefj+kB8KOrOx/WB+FBCbnwhKEsgPhR15+P6QHwwqr1DfDKEPaoF4hMhLTcgPhB9p2X6QHwYGqfne0B8GH7iBWYFxIfhJV5iTkB8IMq9Q3x8ZOYDxMdGaDZAvB+6p+s6QLwXGi+rHIYsfrd4OjxX1e1j5+SmmYDvCTm5eUAV3zxwcP1U+/9s4oGD6udtPqCK3399PXx7sfOI0VK806v6urhvl8fj9jFg38IRnQH0zt36VP3deped7gTITj969T4on5/vAvEe+HTtpKeeS3yncxf85C3x6LyschiUeA/cxctPO8T7UI53jpm7Uzm4vxnGa0h9JDSknGPmrmF7O2erIflRUJFwhpm73qvPvupwq+l1pBsl3h23vp2SZJPb+P3KTBvvIl7NIBa9enccxOtJM8R7UJB3iOdEU4ohng9VCYb4UXzPNuhKL8SPoeru8/5A/BjVEBObp4sZCxA/hvplkdNA/ChFe4d4FhQmFeIZ0JhSiB+m7Hr+CPEjlHRZ5TBu4renjHhiDVo0HleLKk2mi/htu1zi8OynXmmOnCjeu4v4/U8f11j88/ase3DQsindO9p4GnrT6CS+LfOHP/uUd9WZUsyyiXHcSvxu8Xhc372wBi2XAm57MI9rVb/17dMrzhbXLr3aBDagxN9iwTva+CEMeHcazv3+4087w7lZtKcOEzhhqE8cpmxvcKjo1SybGAcTONcUtWxiHIi/Zl680oT18anqB9bHEYKWyqx4pem6wm04t/KevZkPWiwmvDuKv138Tg9aKaWkyq2qXy/5g9ZJMYlyrOoLb+MtnI67Ar36o5HTcVdA/PF2tdTodikjFRmXufqgrp2mbDJxOu4KR/EDzyGgBi0Je94h3hlbyYH4d8pKjZv41bnPU+JwrvjLqMcw3qt3HchpSIsfEO9yaaWGpHgC8eXcpdQL4+Kd2ngVCfHFungHSklHH4ifo5BkXGNbvMt1lSnikQHT4m3251sgfnqLRDFJD8RPfp8sKskxLX6mjVeQgHBsi59Ee/yngfgxlEd/DsPiDdfzR8vip3t2wiNPh0f87tPAqXrheTd5Vk543Bmgip+4SkN45tn2Ti/x+1WtXGOJn2jjpcecA4aqfr96+K9G8aOojbgPLG38bjF0OZ7W/NMabz9s9erNXnZxiynxLhdayYt1HLjEd9ZZOV7AmAGHNXLyIh0JlPj+Folikh9T4mfbeIFRjgVZ/G4xtspGXy7qi3E4VPGH5/a+SNuHm8V16rJRXYQpkKdsz526gUX0+fPRr4OZP74pKbnE+w0tskc3LQxz9WLb+OvRm+3zsFeU3Kv3KfHZI5uaksV7tPH545qaosU7oyiqXJQr3qNjZ9B7ueLdG3iBJxUSULZ4lyiY1F66eJftosdEJsWKd2zjrXovWLwTGuIYB9viFUQxFmWKd+zQG/ZepniLd6P2pVzxuKxyknLFz26UIiZyKVK85btZuVKm+HlERy4FRsVLjlsayhOPZVJOFCce/Xk3yhRv4umwNMoUP71FopjIpjjxWCblRnniZ5AZq/RYEy8yUjkoSTzm6zwoSLzlu8/7U5p4LJNypDTxkxukiokGChI/18bDe5eSxE9ic9nEOFbEi4qMBLSLx2WVgSgXj8sqQylB/Oz9LuD9lhLES4iIOpSLxzRtKNrFzyMkGtIoXryMWMhDuXiclglFt3hMzwdTtnh4H6Vo8fA+jm7x0208vE+gXLzk48umXPHwPolW8RjHEVEqHuM4KprFT9iH9zk0i89z6EJQKh7jOCpaxYs8sCYKFA/vLqgUj3qeDln8blHdvaR97txkzw7e3aCKb547d3hephc/HDqWTbhCFd8KXz/KKPHQ7gxHia/Z/OJTwkeMwjsdchu/Xy2bl83toyaTa4B3DxT26lHeOdAnfqyFh3cvuMR3Onfzd6YgMRI0vPtRSomHd0/0iR9s4+HdF46Zu4a8z4+Hd2+YxvHH7cOb975swLs/PDN36ebqUc8zoazED/Xs4D0Ehpm7lG38wDgR3oNQ1quHdy6Uib9p4+E9EG3iMxyjTHSLh/dglInv1/TwHo4u8f2+HbwTUCwe3inoFQ/vJHSJP8I7F8rEpwncAkrFwzsVyeLHV7/DOxnB4kev24N2BqSLvwHeeZAunj9YcEKw+OE2Ht55kCw+WaAWUSYe3rkQLH6gpod3NuSKH+jbwTsfmsTDOyOKxMM7J3LFX7fx8M6KYPExQwNaxMM7M3LF92p6eOdGrHhcXhcXFeLhnR8N4uE9AmLFH+E9KnLFMwcD+ogXD+9xkCUet7tIhijxOC+TDnnicV1lEuSJZzo6mEaU+KtpWniPiCzxjLuDacSKh/e4yBGP5j0pYsTjLidpkSUe0/PJkCWe4ajADTHicZeTtMgRz3JM4Io88fCeBDHi32t6eE+DFPHvfTt4T4Qw8fCeClni4T0ZUsQf4T0tYsQTDwY8ESAe/fkc5BeP/nwWyOLJjxjtXGIH0kEVT3/gIPrzWaCKZ3jEKLznIH+J99wU8EBu4zkeMQrv6cnfq4f3LAgQD+854BLf6dy9D89+bnB9rffDa8rX3CUexT0TmcXDey7yztzBezayjuPhPR85Z+7gPSMZSzy85yTfzB28ZyVbrx7e85JLPLxnJpN4eM9NHvHwnp0s4uE9PznEw7sAYooHkokn3vHnISscYdHJFg7EGw0H4o2GA/FGw4F4o+FAvNFwIN5oOJhrMQrEGwXijQLxRoF4o0C8USDeKBBvFIg3CsQbJZ74/ao6L765vKOF0yzffKIHc1kdRAvn8FzdvTCEUydrYLWKO7tPr1chuhBNfJO5m8f+O1o4+y8vx92vArO6F4lN+O+nE876aWhdmXc4TbI2hIKxPf9sPLM5mvhmkWX7W7y8o4WzbVK1DlTWjcTu178Nrzh6yQrnEs7u8xslrPXd39pkeWZzNPGn9Hx56b2jhdMQHE4nmMO3v4dX9d1k/YVQ1V/CoZb4d9ue2RxNfFMLtvG4vKOFc2yqsyU9mM2S0MZfwtktnk6ZTY4PrQv0Id4zm1WV+P0q1Hs/OgTx/Mlqui1bSu9OWInnb+NPZYwenc3povPQX1AnWT9RxHe6LqQK8fghXkob39TK7736JalX/743xXs/EoQS3wlnTanqO8liKvGe2Rx7HN/EimMcX4fTFtVQZZfocIzjz8ki+LqEs60o8wGteP9sxsydUSDeKBBvFIg3CsQbBeKNAvFGgXijQLxRIN4oEG8UiDcKxBsF4o0C8UaBeKNAvFEg3igQbxSINwrEGwXijQLxLWvKtf8agfiW/df/kFa/qgPiz2yCV1XpBOLPBN9yQSkQf2b9O1NNPMSf2X3+8c1UkYf4E80yyvAb2mgE4o0C8UaBeKNAvFEg3igQbxSINwrEGwXijQLxRoF4o0C8USDeKBBvFIg3CsQbBeKNAvFG+T+VtlxJPuMgcAAAAABJRU5ErkJggg==" alt="plot of chunk unnamed-chunk-2"/></p>
+
+<pre><code class="r">
+## KS stat
+GKSStat(x = x, statName = &quot;KS&quot;)
+#&gt; The KS test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 0.1930728 
+#&gt; P-value: 0.04162348
+
+## HC stat
+GKSStat(x = x, statName = &quot;HC&quot;)
+#&gt; The HC test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 2.943934 
+#&gt; P-value: 0.2972495
+
+## BJ stat
+GKSStat(x = x, statName = &quot;BJ&quot;)
+#&gt; The BJ test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 0.001374412 
+#&gt; P-value: 0.04689317
+</code></pre>
+
+<p>Next, we restrict our detection range from \(x_{(25)}\) to \(x_{(50)}\)  by providing the parameter <code>index</code> to the function.</p>
+
+<pre><code class="r">index &lt;- 25L : 50L
+
+## KS stat
+GKSStat(x = x, index = index, statName = &quot;KS&quot;)
+#&gt; The KS test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 0.1930728 
+#&gt; P-value: 0.02605874
+
+## HC stat
+GKSStat(x = x, index = index, statName = &quot;HC&quot;)
+#&gt; The HC test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 2.943934 
+#&gt; P-value: 0.1661115
+
+## BJ stat
+GKSStat(x = x, index = index, statName = &quot;BJ&quot;)
+#&gt; The BJ test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 0.001374412 
+#&gt; P-value: 0.0259927
+</code></pre>
+
+<p>Since the largest deviation from the null occurs in the interval \((x_{(25)},x_{(50)})\), shortening the detection range increases the power of the test. Furthermore, because the CDF of the true distribution is always greater than the CDF of the null distribution, we can increase our test power by performing an one-sided test, this can be done via <code>indexL</code> or <code>indexU</code> parameters</p>
+
+<pre><code class="r">indexL &lt;- 25L : 50L
+indexU &lt;- NULL
+
+## One-sided KS+ stat
+GKSStat(x = x, indexL = indexL, indexU = NULL, statName = &quot;KS&quot;)
+#&gt; The KS test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 0.1930728 
+#&gt; P-value: 0.01858176
+
+## One-sided HC+ stat
+GKSStat(x = x, indexL = indexL, indexU = NULL, statName = &quot;HC&quot;)
+#&gt; The HC test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 2.943934 
+#&gt; P-value: 0.01442187
+
+## One-sided BJ+ stat
+GKSStat(x = x, indexL = indexL, indexU = NULL, statName = &quot;BJ&quot;)
+#&gt; The BJ test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 0.001374412 
+#&gt; P-value: 0.01147529
+</code></pre>
+
+<p>The parameter <code>indexL</code> corresponds to the detection range of the tests that favor right-skewed alternative distribution(e.g. \(KS^+\), \(BJ^+\) and \(HC^+\)), and <code>indexU</code> corresponds to the left-skewed distributions(e.g. \(KS^-\), \(BJ^-\) and \(HC^-\)). A combination of <code>indexL</code> and <code>indexU</code> is also supported by the package. An equivalent form of the above tests are</p>
+
+<pre><code class="r">index &lt;- 25L : 50L
+
+## One-sided KS+ stat
+GKSStat(x = x, index = index, statName = &quot;KS+&quot;)
+#&gt; The KS test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 0.1930728 
+#&gt; P-value: 0.01858176
+
+## One-sided HC+ stat
+GKSStat(x = x, index = index, statName = &quot;HC+&quot;)
+#&gt; The HC test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 2.943934 
+#&gt; P-value: 0.01442187
+
+## One-sided BJ+ stat
+GKSStat(x = x, index = index, statName = &quot;BJ+&quot;)
+#&gt; The BJ test statistics
+#&gt; Sample size: 50 
+#&gt; Stat value: 0.001374412 
+#&gt; P-value: 0.01147529
+</code></pre>
+
+<p>which will yield the same results as the previous code chunk shows.</p>
+
+<p>#Session info</p>
+
+<pre><code class="r">sessionInfo()
+#&gt; R Under development (unstable) (2020-03-22 r78032)
+#&gt; Platform: x86_64-w64-mingw32/x64 (64-bit)
+#&gt; Running under: Windows 10 x64 (build 18362)
+#&gt; 
+#&gt; Matrix products: default
+#&gt; 
+#&gt; locale:
+#&gt; [1] LC_COLLATE=C                          
+#&gt; [2] LC_CTYPE=English_United States.1252   
+#&gt; [3] LC_MONETARY=English_United States.1252
+#&gt; [4] LC_NUMERIC=C                          
+#&gt; [5] LC_TIME=English_United States.1252    
+#&gt; system code page: 65001
+#&gt; 
+#&gt; attached base packages:
+#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     
+#&gt; 
+#&gt; other attached packages:
+#&gt; [1] generalKSStat_1.0.3
+#&gt; 
+#&gt; loaded via a namespace (and not attached):
+#&gt;  [1] compiler_4.0.0 magrittr_1.5   tools_4.0.0    Rcpp_1.0.4     stringi_1.4.6 
+#&gt;  [6] highr_0.8      knitr_1.28     stringr_1.4.0  xfun_0.12      evaluate_0.14
+</code></pre>
+
+</body>
+
+</html>
